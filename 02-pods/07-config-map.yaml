@@ -1,0 +1,8 @@
+# It will store configuration and secrets in key value pair
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devops-config
+data:
+  course: DevOps
+  trainer: "Chaitanya"
