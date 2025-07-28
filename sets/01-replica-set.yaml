@@ -7,7 +7,7 @@ metadata:
     tier: frontend
 spec:
   # modify replicas according to your case
-  replicas: 3 # No of pods needed for creating
+  replicas: 3 # No of replica needed for pod
   selector: # replica-set labels
     matchLabels:
       app: nginx
@@ -20,4 +20,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:mainline-alpine3.18-perl
+        image: nginx:mainline-alpine3.18-perl #copied from docker hub
