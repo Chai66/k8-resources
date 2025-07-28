@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx
+    demo: service
+spec:
+  # list of containers
+  containers:
+  - name: nginx-pod
+    image: nginx
+    #here with this line port will not be opened, just for information
+    ports:
+    - containerPort: 80
+--- # now we will attach pod to the service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector: # we can give labels,main functionality of lables is filtering 
+    app: nginx
+    demo: service
+  ports: # If sommone hit or try to access service port 80, then it will forward to container port
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #container-port
